@@ -6,7 +6,7 @@
 import random
 
 def raise_exception():
-    return random.choice(ValueError, TypeError, RuntimeError)
+    raise random.choice([ValueError, TypeError, RuntimeError])
 
 try:
     raise_exception()
