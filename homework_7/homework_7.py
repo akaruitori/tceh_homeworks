@@ -14,7 +14,7 @@ def write_to_file(data):
     Добавляет в конец файла test.txt текст data.
     data: строка
     """
-    with open('test.txt', 'a') as test_file:
+    with open('test.txt', 'w') as test_file:
         test_file.write(data)
     test_file.close()
 
@@ -59,8 +59,13 @@ def save_json_data():
 
 
 def parse_links_from(url):
+    """
+    Собирает все ссылки со страницы c заданным url, кроме ведущих на
+    страницы на https://habrahabr.ru
+    :return: список строк с url
+    """
     data = requests.get(url)
-    pattern = r'<a href="http\S*">'
+    pattern = r'<a href="(http\S*)[^(https://habrahabr.ru\)]"'
     links = re.findall(pattern, str(data.content))
     return links
 
