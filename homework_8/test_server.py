@@ -37,7 +37,7 @@ app.config.update(
 
 @app.route('/random')
 def random_number():
-    return randint(0, 100)
+    return str(randint(0, 100))
 
 
 @app.route('/submit', methods=['GET', 'POST'])
