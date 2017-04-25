@@ -1,0 +1,13 @@
+{% extends 'blog17/_base.html' %}
+
+{% block title %}New Fancy Post{% endblock %}
+
+{% block content %}
+<h2 class="title">Add new post</h2>
+<form action="{% url 'new_post' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn" type="submit" value="Submit" />
+</form>
+
+{% endblock %}

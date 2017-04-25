@@ -1,0 +1,42 @@
+{% extends 'blog17/_base.html' %}
+
+{% block title %}Fansy Post{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="post">
+	    <h2 class="title">{{ post.title }}</h2>
+		<h6 class="date">{{ post.date }}</h6>
+        <h5 class="name">{{ post.author }}</h5>
+		<p> {{ post.text }}</p>
+    </div>
+    </div>
+    <hr>
+
+    <div class="container">
+        <h3>Add new comment:</h3>
+        <form class="form" action="{% url 'post' post.id %}" method="POST">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <input class="btn" type="submit" value="Submit" />
+        </form>
+        <hr>
+    </div>
+
+  <div class="container">
+      <div class="comments">
+        {% for comment in comments %}
+            <div class="comment">
+                <h6 class="date">{{ comment.date }}</h6>
+                <h5 class="name">{{ comment.name }}</h5>
+                <p>{{ comment.text }}</p>
+            <hr>
+            </div>
+         {% endfor %}
+      </div>
+  </div>
+
+</div>
+{% endblock %}
+
+

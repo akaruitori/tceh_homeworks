@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'blog17/styles.css' %}" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Philosopher|Pattaya|PT+Serif');
+    </style>
+</head>
+
+<body>
+  <div class="header">
+	<div class="container">
+		<h1 class="blog_title">Fancy blog</h1>
+	</div>
+  </div>
+
+  <div class="nav-bar">
+      <div class="container">
+          <ul class="nav">
+            <li><a href='{% url 'index' %}'>Home</a></li>
+		    <li><a href="{% url 'new_post' %}">Add new post</a></li>
+		    <li><a href="{% url 'stats' %}">Blog statistics</a></li>
+	      </ul>
+      </div>
+  </div>
+
+  <main>
+
+	<div class="content">
+	    <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
+    </div>
+
+  </main>
+</body>
+
+</html>

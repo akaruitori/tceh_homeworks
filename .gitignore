@@ -78,3 +78,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+db.sqlite3
+local_settings.py

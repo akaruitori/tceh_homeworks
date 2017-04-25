@@ -1,0 +1,26 @@
+{% extends 'blog17/_base.html' %}
+
+{% block title %}Fancy Blog{% endblock %}
+
+
+<div class="content">
+    {% block content %}
+    <div class="posts">
+        {% for post in posts %}
+            <div class="post">
+                <h2 class="title"><a href="{{ post.id }}/">{{ post.title }}</a></h2>
+
+                <h6 class="date">{{ post.date }}</h6>
+                <h5 class="name">{{ post.author }}</h5>
+                <p> {{ post.text }}</p>
+            <p><a class="comment_link" href="{{ post.id }}/">Comments: {{ post.comments.count }}</a></p>
+            <hr>
+            <hr>
+        {% endfor %}
+
+        </div>
+
+    </div>
+    {% endblock %}
+</div>
+
