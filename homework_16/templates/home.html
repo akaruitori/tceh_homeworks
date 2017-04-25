@@ -1,0 +1,35 @@
+{% extends '_base_template.html' %}
+
+{% block home %}
+
+    <div class="form">
+    <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <h3>Add new post:</h3>
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form><br>
+    </div>
+
+
+    <div class="posts">
+        {% for item in items %}
+
+            <div class="post">
+                <h3 class="post-title">
+                    {{ item.title }}
+                </h3>
+
+                <h4>{{ item.author }}</h4>
+                <h5>{{ item.time_stamp }}</h5>
+
+                <div class="post-text">
+                    {{ item.text }}
+                </div>
+                <br>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
