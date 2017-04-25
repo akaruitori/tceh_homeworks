@@ -67,6 +67,6 @@ def stats(request):
         # одним выражение сделать не получается.
         # Нужен намек на правильное наравление :)
         return render(request, 'blog17/stats.html', {
-            'avg_comments': comm_per_post
+            'avg_comments': comm_per_post['num_comments__avg']
         })
     return HttpResponse(status=405)
